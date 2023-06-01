@@ -7,10 +7,7 @@ public abstract class AView : MonoBehaviour
     public float weight;
     public bool isActiveOnStart;
 
-    public virtual CameraConfiguration GetConfiguration() 
-    {
-        return null;
-    }
+    public abstract CameraConfiguration GetConfiguration();
 
     public void SetActive(bool isActive) { }
 

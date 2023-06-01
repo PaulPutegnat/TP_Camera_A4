@@ -11,11 +11,16 @@ public class FixedView : AView
 
     public override CameraConfiguration GetConfiguration()
     {
-        return GetConfiguration();
+        CameraConfiguration config = new CameraConfiguration();
+        config.yaw = yaw;
+        config.pitch = pitch;
+        config.roll = roll;
+        config.fov = fov;
+        config.pivot = transform.position;
+        config.distance = 0;
+
+        return config;
     }
 
-    private void Update()
-    {
-        GetConfiguration();
-    }
+
 }
