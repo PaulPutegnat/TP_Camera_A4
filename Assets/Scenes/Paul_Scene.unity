@@ -805,7 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f90a4163f81a7f84c8bf0cd490b502fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoop: 1
+  isLoop: 0
   node:
   - {fileID: 383097576}
   - {fileID: 1578220624}
