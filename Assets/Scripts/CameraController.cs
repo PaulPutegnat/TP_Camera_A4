@@ -7,7 +7,6 @@ public class CameraController : MonoBehaviour
 {
     static CameraController instance;
 
-    public List<AView> activeViews;
     [Range(0f, 1f)]
     public float interpolation = 0;
 
