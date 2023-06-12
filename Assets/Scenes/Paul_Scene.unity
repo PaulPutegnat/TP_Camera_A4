@@ -157,7 +157,7 @@ MonoBehaviour:
   yaw: 0
   pitch: 0
   roll: 0
-  fov: 0
+  fov: 90
 --- !u!4 &27644026
 Transform:
   m_ObjectHideFlags: 0
@@ -301,9 +301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f528b559f30799b42a50fe0fa308165c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeViews:
-  - {fileID: 1961641575}
-  - {fileID: 1599904709}
+  interpolation: 0
+  test: {fileID: 1870712296}
   camera: {fileID: 589749384}
 --- !u!1 &1578220624
 GameObject:
@@ -548,7 +547,7 @@ MonoBehaviour:
   yaw: 0
   pitch: 0
   roll: 0
-  fov: 0
+  fov: 75
 --- !u!4 &1870712297
 Transform:
   m_ObjectHideFlags: 0

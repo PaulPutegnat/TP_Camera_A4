@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
 
     [Range(0f, 1f)]
     public float interpolation = 0;
+    public FixedView test;
 
     private List<AView> activeViews = new List<AView>();
 
@@ -75,10 +76,11 @@ public class CameraController : MonoBehaviour
     }
 
 
-    public void ApplyConfiguration(Camera camera/*, CameraConfiguration configuration*/) 
+    public void ApplyConfiguration(Camera camera, CameraConfiguration configuration) 
     {
-        camera.transform.rotation = Quaternion.Euler(ComputeAveragePitch(), ComputeAverageYaw(), ComputeAverageRoll());
-        camera.transform.position = ComputeAveragePivot();
+        camera.transform.rotation = configuration.GetRotation();
+        camera.transform.position = configuration.GetPosition();
+        camera.fieldOfView = configuration.fov;
     }
 
     public void AddView(AView view) 
@@ -88,6 +90,6 @@ public class CameraController : MonoBehaviour
 
     public void Update()
     {
-        ApplyConfiguration(camera);
+        ApplyConfiguration(camera, test.GetConfiguration());
     }
 }
