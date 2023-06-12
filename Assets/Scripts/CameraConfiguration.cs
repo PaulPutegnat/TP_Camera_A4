@@ -6,6 +6,9 @@ using UnityEngine;
 [Serializable]
 public class CameraConfiguration
 {
+    public CameraConfiguration currentConfiguration;
+    public CameraConfiguration targetedConfiguration;
+
     public  float yaw;
     public  float pitch;
     public  float roll;
@@ -24,5 +27,14 @@ public class CameraConfiguration
         Gizmos.matrix = Matrix4x4.TRS(GetPosition(), GetRotation(), Vector3.one);
         Gizmos.DrawFrustum(Vector3.zero, fov, 0.5f, 0f, Camera.main.aspect);
         Gizmos.matrix = Matrix4x4.identity;
+    }
+
+    public void smooth(CameraConfiguration cConfig, CameraConfiguration tConfig)
+    {
+        cConfig = currentConfiguration;
+        tConfig = targetedConfiguration;
+
+        //J'ai essayé d'appliqué la formule du smooth sans succès
+        //cConfig.pivot = cConfig.yaw + (tConfig.yaw - cConfig.yaw) * 0.1;
     }
 }
