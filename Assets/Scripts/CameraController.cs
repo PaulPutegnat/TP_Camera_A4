@@ -83,9 +83,7 @@ public class CameraController : MonoBehaviour
         camera.fieldOfView = configuration.fov;
     }
 
-    public void AddView(AView view) 
-    {
-    }
+    public void AddView(AView view) { }
     public void RemoveView(AView view) { }
 
     public void Update()
