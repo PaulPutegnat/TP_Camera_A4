@@ -6,7 +6,10 @@ public class CameraController : MonoBehaviour
 {
     static CameraController instance;
 
-    private List<AView> activeViews;
+    [Range(0f, 1f)]
+    public float interpolation = 0;
+
+    private List<AView> activeViews = new List<AView>();
 
     public static CameraController Instance
     {
@@ -31,8 +34,24 @@ public class CameraController : MonoBehaviour
         return Vector2.SignedAngle(Vector2.right, sum);
     }
 
-    public void ApplyConfiguration(Camera camera, CameraConfiguration configuration) { }
+    public void ApplyConfiguration(Camera camera, CameraConfiguration configuration) 
+    {
+        camera.transform.position = configuration.GetPosition();
+        camera.transform.rotation = configuration.GetRotation();
+        camera.fieldOfView = configuration.fov;
+    }
 
-    public void AddView(AView view) { }
-    public void RemoveView(AView view) { }
+    public void AddView(AView view) 
+    {
+        activeViews.Add(view);
+    }
+    public void RemoveView(AView view) 
+    {
+        activeViews.Remove(view);
+    }
+
+    private void Update()
+    {
+        ApplyConfiguration(camera, );
+    }
 }
